@@ -1,0 +1,155 @@
+<mvc:View
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    controllerName="hsp.doctor.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+      xmlns:table="sap.ui.table"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+        titleAlignment="Center"
+    >
+        <content>
+            <!-- <Text text="Please Enter Your Name"></Text> -->
+            <f:SimpleForm
+                id="idPatientDetails"
+                editable="false"
+                layout="ResponsiveGridLayout"
+                title="Doctor Appointment"
+                labelSpanXL="4"
+                labelSpanL="3"
+                labelSpanM="4"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="0"
+                emptySpanL="4"
+                emptySpanM="0"
+                emptySpanS="0"
+                columnsXL="2"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="false"
+            >
+                <f:content>
+              
+         <Label text="Seach" />
+                    <Input
+        id="inputSeach"
+      
+        placeholder="Seach"
+        liveChange="onSeachChange" />
+         
+                 
+                </f:content>
+            </f:SimpleForm>
+         
+          <ComboBox id="filterComboBox" placeholder="Select Name" selectionChange="onFilterChange" items="{comboBoxModel>/items}">
+            <core:Item key="{comboBoxModel>key}" text="{comboBoxModel>text}" />
+        </ComboBox>
+         
+                <Table id="productTable" items="{model>/}">
+                    <columns>
+                         <Column>
+                            <Text text="Name" />
+                        </Column>
+                        <Column>
+                            <Text text="Description" />
+                        </Column>
+                        <Column>
+                            <Text text="Price" />
+                        </Column>
+                       
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                                  <Input
+                               editable="false"
+                    value="{model>Name}"
+                    width="100%"
+                    liveChange="onNameChange" />
+                             <Input
+                    value="{model>Description}"
+                       editable="false"
+                    width="100%"
+                    liveChange="onMobileChange" />
+                             <Input
+                    value="{model>Price}"
+                      editable="false"
+                    width="100%"
+                    liveChange="onAddressChange" />
+                      
+        
+                          
+                        </ColumnListItem>
+                         
+                    </items>
+                </Table>
+             
+          
+
+
+           <table:Table   
+            selectionMode="Single"
+            selectionBehavior="RowSelector"
+            class="sapUiResponsiveMargin"
+            rowSelectionChange="onRowSelectionChange"
+ id="productTables" rows="{model>/}">
+            <table:columns>
+                <table:Column>
+                    <Label text="Name" />
+                    <table:template>
+                        <Text text="{model>Name}" />
+                    </table:template>
+                </table:Column>
+                <table:Column>
+                    <Label text="Description" />
+                    <table:template>
+                        <Text text="{model>Description}" />
+                    </table:template>
+                </table:Column>
+                <table:Column>
+                    <Label text="Price" />
+                    <table:template>
+                        <Text text="{model>Price}" />
+                    </table:template>
+                </table:Column>
+            </table:columns>
+        </table:Table>
+     <Text text="{model>/2/Name}" />
+    <Input value="{model>/2/Name}" />
+  <List id="productList" items="{model>/}">
+            <items>
+                <ObjectListItem
+                    title="{model>Name}"
+                    number="{model>Price}"
+                        numberUnit="{= ${model>Price} > 20 ? 'Expensive' : 'Affordable' }"
+                    icon="sap-icon://product"
+                   
+                  >
+                    <attributes>
+                        <ObjectAttribute text="{model>Description}" />
+                    </attributes>
+                </ObjectListItem>
+            </items>
+        </List>
+     <VBox id="vbox" binding="{model>/2/}">
+        <Text text="{model>Name}" />
+        <Text text="{model>Description}" />
+    </VBox>
+  <VBox id="productDetails" visible="false">
+            <Title text="Product Details" level="H2" />
+            <Label text="Name" />
+            <Text text="{model>Name}" />
+            <Label text="Description" />
+            <Text text="{model>Description}" />
+            <Label text="Price" />
+            <Text text="{model>Price}" />
+        </VBox>
+     
+        </content>
+     
+    </Page>
+</mvc:View>

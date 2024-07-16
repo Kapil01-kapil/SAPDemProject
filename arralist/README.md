@@ -1,23 +1,23 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Sat Jun 22 2024 09:37:49 GMT+0530 (India Standard Time)|
+|**Generation Date and Time**<br>Sat Jul 06 2024 16:53:03 GMT+0530 (India Standard Time)|
 |**App Generator**<br>@sap/generator-fiori-freestyle|
-|**App Generator Version**<br>1.14.0|
+|**App Generator Version**<br>1.13.1|
 |**Generation Platform**<br>Visual Studio Code|
 |**Template Used**<br>simple|
 |**Service Type**<br>None|
 |**Service URL**<br>N/A
-|**Module Name**<br>doctor|
+|**Module Name**<br>arralist|
 |**Application Title**<br>App Title|
-|**Namespace**<br>hsp|
+|**Namespace**<br>|
 |**UI5 Theme**<br>sap_horizon|
 |**UI5 Version**<br>1.125.1|
 |**Enable Code Assist Libraries**<br>False|
 |**Enable TypeScript**<br>False|
 |**Add Eslint configuration**<br>False|
 
-## doctor
+## arralist
 
 An SAP Fiori application.
 

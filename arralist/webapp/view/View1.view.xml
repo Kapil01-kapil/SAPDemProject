@@ -1,0 +1,48 @@
+<mvc:View controllerName="arralist.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+   <Page id="page" title="{i18n>title}">
+        <VBox>
+            <Table
+                id="valueList"
+                items="{
+                    path: '/values',
+                    templateShareable: true
+                }">
+                <columns>
+                    <Column>
+                        <Text text="Name" />
+                    </Column>
+                    <Column>
+                        <Text text="Description" />
+                    </Column>
+                    <Column>
+                        <Text text="Price" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Input
+                                value="{Name}"
+                                width="100%"
+                                liveChange="onInputChange" />
+                            <Input
+                                value="{Description}"
+                                width="100%"
+                                liveChange="onInputChange" />
+                            <Input
+                                value="{Price}"
+                                width="100%"
+                                liveChange="onInputChange" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+            <Input id="inputValue" placeholder="Enter value" />
+            <Button text="Add" press="onAdd" />
+            <Button text="Save" press="onSave" />
+            <Button text="Click" press="onClick" />
+        </VBox>
+    </Page>
+</mvc:View>
