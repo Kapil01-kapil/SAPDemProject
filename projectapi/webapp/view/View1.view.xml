@@ -1,0 +1,68 @@
+<mvc:View controllerName="projectapi.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:table="sap.ui.table"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content >
+        <table:Table rows="{mData>/}" rowSelectionChange="onClickCell" id="idTable">
+        <table:columns>
+        <table:Column label="ID">
+        <table:template>
+        <Text text="{mData>ID}"></Text>
+        </table:template>
+        </table:Column>
+        <table:Column label="Name">
+        <table:template>
+        <Text text="{mData>Name}"></Text>
+        </table:template>
+        </table:Column>
+        <table:Column label="Description">
+        <table:template>
+        <Text text="{mData>Description}"></Text>
+        </table:template>
+        </table:Column>
+         <table:Column label="Price">
+        <table:template>
+        <Input value="{mData>Price}" editable="false"></Input>
+        </table:template>
+        </table:Column>
+         <table:Column label="Rating">
+         
+        <table:template>
+
+       <RatingIndicator value="{mData>Rating}"></RatingIndicator>
+        </table:template>
+      
+        </table:Column>
+         <table:Column label="Actions">
+         
+        <table:template>
+
+       <HBox>
+            <Button text="Update"  type="Attention" press=".onUpdate"  />
+            <Button text="Delete" press=".onDelete" type="Critical" />
+          </HBox>
+        </table:template>
+      
+        </table:Column>
+        </table:columns>
+        </table:Table>
+        <Button text="Add New Record" type="Emphasized" press="onClickCreate"></Button>
+        <Button text="Update" type="Attention" press="onClickUpdate"> </Button>
+        <Button text="Delte" type="Critical" press="onClickDelte"> </Button>
+        <Dialog id="idDG">
+        <Input placeholder="Enter ID"></Input>
+        <Input placeholder="Enter Name"></Input>
+        <Input placeholder="Enter Descp" ></Input>
+        <Input placeholder="Price" type="Number"></Input>
+        <RatingIndicator ></RatingIndicator>
+        <beginButton>
+        <Button icon="sap-icon://accept" type="Success" press="onClickAdd"></Button>
+        </beginButton>
+        <endButton>
+        <Button icon="sap-icon://decline" press="onCLickDGClose" type="Negative"></Button>
+        </endButton>
+        </Dialog>
+        </content >
+    </Page>
+</mvc:View>

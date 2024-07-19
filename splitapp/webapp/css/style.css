@@ -1,0 +1,15 @@
+/* Enter your custom styles here */
+.customMasterPage {
+    background-color: #f0f0f0;
+  }
+  
+  .customDetailPage {
+    background-color: #ffffff;
+    padding: 10px;
+  }
+  
+  .customListItem {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 10px 0;
+  }
+  
