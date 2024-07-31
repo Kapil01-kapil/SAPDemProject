@@ -1,0 +1,14 @@
+.highlightGSTHigh {
+    color: red;
+    font-weight: bold;
+}
+
+.highlightGSTLow {
+    color: orange;
+    font-weight: bold;
+}
+
+.highlightTotalHigh {
+    background-color: lightgreen;
+    font-weight: bold;
+}

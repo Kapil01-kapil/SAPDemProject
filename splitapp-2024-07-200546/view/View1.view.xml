@@ -1,0 +1,57 @@
+<mvc:View xmlns:feeds="sap.viz.ui5.controls.common.feeds" xmlns:data="sap.viz.ui5.data" controllerName="splitapp.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+<SplitApp id="SplitApp" class="sapUiResponsiveContentPadding">
+    <!-- Master Page -->
+    <masterPages>
+      <Page id="masterPage" title="Master Page">
+        <List items="{/items}">
+          <items>
+            <CustomListItem type="Navigation" press="onListItemPress">
+              <HBox>
+                <Image src="{image}" width="50px" height="50px" />
+                <VBox class="sapUiSmallMarginBegin">
+                  <Text text="{name}" class="sapUiSmallMarginBottom" />
+                  <Text text="{description}" wrapping="true" />
+                </VBox>
+              </HBox>
+            </CustomListItem>
+          </items>
+        </List>
+      </Page>
+    </masterPages>
+    
+    <!-- Detail Page -->
+    <detailPages>
+      <Page id="detailPage" title="Detail Page">
+        <content>
+          <VBox class="sapUiSmallMargin">
+            <Image id="detailImage" src="https://www.mapsofindia.com/world-map/india/india-states-and-capital-map.jpg" width="100%" />
+            <Text id="detailText" text="Select India." class="sapUiSmallMarginTop"/>
+
+            <viz:VizFrame id="idVizFrame"  vizType="column">
+              <viz:dataset>
+                <data:FlattenedDataset data="{model2>/}">
+                  <data:dimensions>
+                    <data:DimensionDefinition name="Category" value="{model2>category}" />
+                  </data:dimensions>
+                  <data:measures>
+                    <data:MeasureDefinition name="Value" value="{model2>value}" />
+                  </data:measures>
+                </data:FlattenedDataset>
+              </viz:dataset>
+              <viz:feeds>
+                <feeds:FeedItem uid="valueAxis" type="Measure" values="Value" />
+                <feeds:FeedItem uid="categoryAxis" type="Dimension" values="Category" />
+              </viz:feeds>
+            </viz:VizFrame>
+          
+          </VBox>
+        </content>
+      </Page>
+    </detailPages>
+  </SplitApp>
+    </Page>
+</mvc:View>

@@ -1,0 +1,37 @@
+<mvc:View controllerName="project2.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+     <Page title="Main Page">
+        <!-- <List
+            id="itemList"
+            items="{/items}"
+            itemPress="onItemPress">
+            <StandardListItem
+                title="{name}"
+                description="{description}" />
+        </List> -->
+          <Table
+            id="itemTable"
+            items="{/items}"
+            selectionChange="onSelectionChange">
+            <columns>
+                <Column>
+                    <Text text="Name" />
+                </Column>
+                <Column>
+                    <Text text="Description" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem
+                    type="Active"
+                    press="onItemPress">
+                    <cells>
+                        <Text text="{name}" />
+                        <Text text="{description}" />
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+    </Page>
+</mvc:View>

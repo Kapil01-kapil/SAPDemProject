@@ -99,8 +99,12 @@ sap.ui.define([
         },
 
         onDelete: function(oEvent) {
-         
-      
+            var iRowIndex = oEvent.getParameter("rowIndex");
+            var oTable =this.getView().byId("idTable").getSelectedIndex();
+            // var oModel = oTable.getModel();
+            // var aProducts = oModel.getProperty("/products");
+            // var iSelectedIndex = oTable.getSelectedIndex();
+      console.log("oTable",oTable,iRowIndex);
             // if (iSelectedIndex >= 0) {
             //   aProducts.splice(iSelectedIndex, 1);
             //   oModel.setProperty("/products", aProducts);

@@ -1,0 +1,87 @@
+<mvc:View controllerName="project1.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:wt="project1.control"
+    xmlns="sap.m">
+     <Page title="Table Example">
+        <content>
+            <Table id="idCostsTable" items="{/Products}">
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="Cost Details"/>
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column>
+                        <header>
+                            <Label text="Manufacturing Cost (A)"/>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="Production Cost (B)"/>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="Advertising Cost (C)"/>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="GSTA"/>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="Total"/>
+                        </header>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Input value="{A}" liveChange=".onInputChange" type="Number" />
+                            <Input value="{B}" liveChange=".onInputChange" type="Number" />
+                            <Input value="{C}" liveChange=".onInputChange" type="Number" />
+                            <Text text="{GST}" class="{path: 'GST', formatter: '.formatGSTColor'}"/>
+                            <Text text="{Total}" class="{path: 'Total', formatter: '.formatTotalColor'}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+        <VBox class="sapUiSmallMargin">
+        <Input
+            id="emailInputs"
+            placeholder="Enter your email"
+            liveChange="onEmailInputChange" />
+      
+
+  <VBox class="sapUiSmallMargin">
+        <Input
+            id="emailInput"
+            placeholder="Enter your email"
+            liveChange="onInputChanges" />
+        
+        <Input
+            id="passwordInput"
+            placeholder="Enter your password"
+            type="Password"
+            liveChange="onInputChanges" />
+        
+       
+    </VBox>
+        
+      <!-- <Button
+            id="loginButton"
+            text="Login"
+            press="onLoginPress"
+            enabled="false" /> -->
+    </VBox>
+    <wt:ProductRating 
+			id="rating" 
+			class="sapUiSmallMarginBeginEnd" 
+			change=".onRatingChange"/>
+  
+    </Page>
+</mvc:View>

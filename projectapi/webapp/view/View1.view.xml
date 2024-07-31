@@ -4,7 +4,10 @@
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
         <content >
-        <table:Table rows="{mData>/}" rowSelectionChange="onClickCell" id="idTable">
+        <table:Table rows="{mData>/}" rowSelectionChange="onClickCell" id="idTable"
+          selectionMode="Single"
+    selectionBehavior="Row"
+        >
         <table:columns>
         <table:Column label="ID">
         <table:template>
@@ -51,7 +54,7 @@
         <Button text="Update" type="Attention" press="onClickUpdate"> </Button>
         <Button text="Delte" type="Critical" press="onClickDelte"> </Button>
         <Dialog id="idDG">
-        <Input placeholder="Enter ID"></Input>
+        <Input placeholder="Enter ID" liveChange=""></Input>
         <Input placeholder="Enter Name"></Input>
         <Input placeholder="Enter Descp" ></Input>
         <Input placeholder="Price" type="Number"></Input>
@@ -64,5 +67,8 @@
         </endButton>
         </Dialog>
         </content >
+        
     </Page>
+    <Button text="Click Me" visible="{= ${device>/isPhone} }" />
+
 </mvc:View>
