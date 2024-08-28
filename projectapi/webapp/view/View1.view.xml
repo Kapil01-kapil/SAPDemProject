@@ -1,9 +1,26 @@
 <mvc:View controllerName="projectapi.controller.View1"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns:table="sap.ui.table"
+       xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:smartFilter="sap.ui.comp.smartfilterbar"
     xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
+    <Page id="page" title="jli">
         <content >
+       
+         <!-- <smartFilter:SmartFilterBar
+                id="smartFilterBar"
+                entitySet="mData"
+                liveMode="true">
+            </smartFilter:SmartFilterBar>
+         <smartTable:SmartTable
+                id="smartTable"
+                entitySet="mData"
+                tableType="Table"
+                smartFilterId="smartFilterBar"
+                useVariantManagement="true"
+                useTablePersonalisation="true"
+                header="Smart Table Example"
+                showRowCount="true">
         <table:Table rows="{mData>/}" rowSelectionChange="onClickCell" id="idTable"
           selectionMode="Single"
     selectionBehavior="Row"
@@ -50,6 +67,7 @@
         </table:Column>
         </table:columns>
         </table:Table>
+         </smartTable:SmartTable> -->
         <Button text="Add New Record" type="Emphasized" press="onClickCreate"></Button>
         <Button text="Update" type="Attention" press="onClickUpdate"> </Button>
         <Button text="Delte" type="Critical" press="onClickDelte"> </Button>
@@ -67,8 +85,28 @@
         </endButton>
         </Dialog>
         </content >
-        
+	<Button icon="sap-icon://excel-attachment" press="onExport"/>
+         <Table id="myTable" items="{mData>/}">
+                <columns>
+                    <Column>
+                        <Text text="Name"/>
+                    </Column>
+                    <Column>
+                        <Text text="Empid"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{mData>Name}"/>
+                            <Text text="{mData>Empid}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+               <Button icon="sap-icon://accept" type="Success" press="onButton"></Button>
     </Page>
+    	
     <Button text="Click Me" visible="{= ${device>/isPhone} }" />
 
 </mvc:View>

@@ -1,19 +1,24 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
+    "sap/ui/core/mvc/Controller",
+    'sap/ui/export/library',
+	 "sap/ui/export/Spreadsheet"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller) {
+    function (Controller, Spreadsheet) {
         "use strict";
 
         return Controller.extend("projectapi.controller.View1", {
              onInit: function () {
             let dataModel=new sap.ui.model.json.JSONModel();
             var that=this;
-            let url="https://cors-anywhere.herokuapp.com/https://services.odata.org/V2/(S(l0kdqvpxkpkgvjqs3s1zkqy3))/OData/OData.svc/";
+            //let url="https://cors-anywhere.herokuapp.com/https://services.odata.org/V2/(S(l0kdqvpxkpkgvjqs3s1zkqy3))/OData/OData.svc/";
+            let url = '/sap/opu/odata/sap/ZB71_EMP_SRV/'
             let model = new sap.ui.model.odata.v2.ODataModel(url);
-            model.read("/Products",{
+
+            
+            model.read("/EmployeeSet",{
                 success:function(data){
                     console.log(data.results);
                     dataModel.setData(data.results);
@@ -113,6 +118,78 @@ sap.ui.define([
             //   MessageToast.show("Please select a product to delete.");
             // }
           },
+          onExport: function() {
+			var aCols, oRowBinding, oSettings, oSheet, oTable;
+
+			if (!this._oTable) {
+				this._oTable = this.byId('myTable');
+			}
+
+			oTable = this._oTable;
+			oRowBinding = oTable.getBinding('items');
+			aCols = this.createColumnConfig();
+
+          
+
+            oSettings = {
+                workbook: {
+                    columns: aCols
+                },
+                dataSource: oRowBinding,
+                fileName: "Employees.xlsx"
+            };
+
+            oSheet = new Spreadsheet(oSettings)
+            oSheet.build()
+                .then(function () {
+                    sap.m.MessageToast.show("Spreadsheet export has finished");
+                })
+                .finally(function () {
+                    oSheet.destroy();
+                });
+		},
+        createColumnConfig: function () {
+            return [
+                {
+                    label: 'Name',
+                    property: 'Name',
+                    type: 'string'
+                },
+                {
+                    label: 'Empid',
+                    property: 'Empid',
+                    type: 'number'
+                }
+            ];
+        },
+        onButton:function(){
+           var data ={
+            Empid:12000,
+            Name:'jh',
+            Desig:'hjjn',				
+			Skill:'jhi',
+            Salary:789,
+            Doj:'01/01/1998',
+            Status:true
+
+           }
+            console.log(data);
+            // obj["ID"]=Number(arr[0].getValue());
+            // obj["ID"]=24;
+            let url= '/sap/opu/odata/sap/ZB71_EMP_SRV/';
+            let model = new sap.ui.model.odata.v2.ODataModel(url,true);
+            model.setUseBatch(false);
+            model.create("/EmployeeSet",data,{
+                success:function(req, res){
+                    console.log(req,res );
+                 sap.m.MessageToast.show("Sucess");
+              
+                },
+                error:function(err){
+                    console.log(err);
+                }
+            }) 
+        }
 
         });
     });

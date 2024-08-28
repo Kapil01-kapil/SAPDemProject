@@ -8,8 +8,12 @@ server:
   customMiddleware:
     - name: fiori-tools-proxy
       afterMiddleware: compression
+      
       configuration:
         ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+        backend:
+        - path: /sap
+          url: http://s4hana.ides.com:8034/
         ui5:
           path:
             - /resources

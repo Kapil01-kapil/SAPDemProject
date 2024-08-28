@@ -1,0 +1,25 @@
+<mvc:View xmlns:form="sap.ui.layout.form" controllerName="college.controller.View1"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page >
+    <content>
+    <form:SimpleForm id="idSimpleForm">
+    <Label text="Enter Your ID">
+    </Label>
+    <Input placeholder="Enter Your ID"></Input>
+    <Label text="Enter Your Name"></Label>
+    <Input placeholder="Enter Your Name"></Input>
+    <Label text="Date of Birth"></Label>
+    <DatePicker ></DatePicker>
+    <Label text="Enter Your Dept Name">
+    </Label>
+    <Input placeholder="Enter Your IDept Name"></Input>
+    <Label text="Enter Your Mobile Number"></Label>
+    <Input placeholder="Enter Your Mobile Number" type="Number" maxLength="10"></Input>
+    </form:SimpleForm>
+    <Button text="Save" type="Success" press="onClickSaveCreate"></Button>
+    <Button text="Clear" type="Critical"></Button>
+    </content>
+    </Page>
+</mvc:View>

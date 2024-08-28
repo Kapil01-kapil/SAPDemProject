@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+<Dialog id="IdEdit">
+<VBox >
+<Label text="Mail Id: "></Label>
+<Input  id="idEditMail" value="{New>/date}"></Input>
+
+</VBox>
+<beginButton>
+<Button id="ok" text="Ok" press="closeDialog"></Button>
+</beginButton>
+</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,62 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:unified="sap.ui.unified" xmlns:table="sap.ui.table" controllerName="college.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content >
+        <!-- <unified:FileUploader ></unified:FileUploader> -->
+        <Button text="Create" press="onClickCreate"></Button>
+        <Button text="Delete" press="onClickDelete"></Button>
+        <Input showValueHelp="true" width="10%" valueHelpRequest="onClickValueHelp"></Input>
+        <ComboBox items="{stuModel>/}">
+        <items>
+        <core:ListItem text="{stuModel>StuName}"></core:ListItem>
+        </items>
+        </ComboBox>
+        <table:Table id="idTableSTU" rows="{stuModel>/}">
+        <table:columns>
+        <table:Column label="Student ID">
+        <table:template>
+        <Text text="{stuModel>StuId}"></Text>
+        </table:template>
+        </table:Column>
+        <table:Column label="Student Name">
+        <table:template>
+        <Text text="{stuModel>StuName}"></Text>
+        </table:template>
+        </table:Column>
+         <table:Column label="Student DOB">
+        <table:template>
+        <!-- <Text text="{stuModel>StuDob}"></Text> -->
+        <DatePicker editable="false" value="{	constraints : {displayFormat : 'Date'},path:'stuModel>StuDob',type : 'sap.ui.model.odata.type.DateTime'}"></DatePicker>
+        </table:template>
+        </table:Column>
+         <table:Column label="Student Dept">
+        <table:template>
+        <Text text="{stuModel>StuDept}"></Text>
+        </table:template>
+        </table:Column>
+         <table:Column label="Student Mob No">
+        <table:template>
+        <Text text="{stuModel>StuPh}"></Text>
+        </table:template>
+        </table:Column>
+        </table:columns>
+        
+        </table:Table>
+        <Dialog id="idValueHelp" contentWidth="5%">
+        <Table items="{stuModel>/}"  width="100%">
+        <columns>
+        <Column >
+        <Text text="Stu Name"></Text>
+        </Column>
+        </columns>
+        <items>
+        <ColumnListItem >
+        <Text text="{stuModel>StuName}"></Text>
+        </ColumnListItem>
+        </items>
+        </Table>
+        </Dialog>
+        </content >
+    </Page>
+</mvc:View>

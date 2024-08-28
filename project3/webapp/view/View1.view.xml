@@ -1,0 +1,96 @@
+<mvc:View controllerName="project3.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:unified="sap.ui.unified" xmlns:table="sap.ui.table"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+     <headerContent>
+    <Toolbar >
+    <ToolbarSpacer ></ToolbarSpacer>
+    <Select change="onSelectLanguage">
+    <items>
+    <core:ListItem text="English"></core:ListItem>
+    <core:ListItem text="हिंदी"></core:ListItem>
+     <core:ListItem text="తెలుగు"></core:ListItem>
+    </items>
+    </Select>
+    </Toolbar>
+    </headerContent>
+         <content >
+        <!-- <unified:FileUploader ></unified:FileUploader> -->
+       <Button text="{i18n>crt}" press="onClickCreate"></Button>
+        <Button text="{i18n>del}" press="onClickDelete"></Button>
+        <Input id="idNameStu" showValueHelp="true" width="10%" valueHelpRequest="onClickValueHelp"></Input>
+        <ComboBox items="{stuModel>/}">
+        <items>
+        <core:ListItem text="{stuModel>StuName}"></core:ListItem>
+        </items>
+        </ComboBox>
+        <table:Table id="idTableSTU" rows="{stuModel>/}" cellClick="onClickCell">
+        <table:columns>
+        <table:Column  label="{i18n>stuId}">
+        <table:template>
+        <Text text="{stuModel>StuId}"></Text>
+        </table:template>
+        </table:Column>
+        <table:Column label="{i18n>stuName}">
+        <table:template>
+        <!-- <Text text="{stuModel>StuName}"></Text> -->
+        <Input  editable="false" value="{stuModel>StuName}" submit="onSubmitEdits"></Input>
+        </table:template>
+        </table:Column>
+         <table:Column label="{i18n>stuDOB}">
+        <table:template>
+        <!-- <Text text="{stuModel>StuDob}"></Text> -->
+        <DatePicker editable="false"  value="{	constraints : {displayFormat : 'Date'},path:'stuModel>StuDob',type : 'sap.ui.model.odata.type.DateTime'}"  change="onDateChange"></DatePicker>
+        </table:template>
+        </table:Column>
+         <table:Column label="{i18n>dept}">
+        <table:template>
+        <Input  editable="false"  submit="onSubmitEdits" value="{stuModel>StuDept}"></Input>
+        </table:template>
+        </table:Column>
+         <table:Column  label="{i18n>mob}">
+        <table:template>
+        <!-- <Text text="{stuModel>StuPh}"></Text> -->
+        <Input editable="false" value="{stuModel>StuPh}" submit="onSubmitEdits"></Input>
+        </table:template>
+        </table:Column>
+        </table:columns>
+        
+        </table:Table>
+        <Dialog id="idValueHelp" contentWidth="5%">
+        <Table items="{stuModel>/}"  width="100%" itemPress="onClickItem">
+        <columns>
+        <Column >
+        <Text text="Stu Name"></Text>
+        </Column>
+        </columns>
+        <items>
+        <ColumnListItem type="Active">
+        <Text text="{stuModel>StuName}"></Text>
+        </ColumnListItem>
+        </items>
+        </Table>
+        </Dialog>
+        </content >
+         <Table id="myTable" items="{/EmployeeSet}">
+                <columns>
+                    <Column>
+                        <Text text="Name"/>
+                    </Column>
+                    <Column>
+                        <Text text="Empid"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{Name}"/>
+                            <Text text="{Empid}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+    </Page>
+</mvc:View>

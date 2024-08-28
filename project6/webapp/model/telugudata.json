@@ -1,0 +1,212 @@
+[
+    {
+     "EmpId": 1001,
+     "Name": "మార్క్",
+     "Joining Date": "31-Dec-21",
+     "Email": "మార్క్@gmail.com",
+     "Department": "ఫియోరి",
+     "Monthly Salary": 524,
+     "Job Status": "శాశ్వతమైనది",
+     "Location":"హైదరాబాద్"
+    },
+    {
+     "EmpId": 1002,
+     "Name": "బ్రియాన్",
+     "Joining Date": "31-Dec-21",
+     "Email": "బ్రియాన్@gmail.com",
+     "Department": "అబాప్",
+     "Monthly Salary": 854,
+     "Job Status": "శాశ్వతమైనది",
+     "Location":"హైదరాబాద్"
+    },
+    {
+     "EmpId": 1003,
+     "Name": "అలాన్",
+     "Joining Date": "14-Jan-22",
+     "Email": "అలాన్@gmail.com",
+     "Department": "బేసిస్",
+     "Monthly Salary": 587,
+     "Job Status": "శాశ్వతమైనది",
+     "Location":"విశాఖపట్నం"
+    },
+    {
+     "EmpId": 1004,
+     "Name": "టోనీ",
+     "Joining Date": "14-Jan-22",
+     "Email": "టోనీ@gmail.com",
+     "Department": "అమ్మకాలు",
+     "Monthly Salary": 584,
+     "Job Status": "శాశ్వతమైనది",
+     "Location":"హైదరాబాద్"
+    },
+    {
+     "EmpId": 1005,
+     "Name": "అగాథ",
+     "Joining Date": "01-Feb-22",
+     "Email": "అగాథ@gmail.com",
+     "Department": "ఫియోరి",
+     "Monthly Salary": 54,
+     "Job Status": "శాశ్వతమైనది",
+     "Location":"విశాఖపట్నం"
+    },
+    {
+     "EmpId": 1006,
+     "Name": "Lana",
+     "Joining Date": "01-Feb-22",
+     "Email": "Lana@gmail.com",
+     "Department": "అబాప్",
+     "Monthly Salary": 54,
+     "Job Status": "శాశ్వతమైనది",
+     "Location":"విశాఖపట్నం"
+    },
+    {
+     "EmpId": 1007,
+     "Name": "Heather",
+     "Joining Date": "04-Aug-22",
+     "Email": "Heather@gmail.com",
+     "Department": "బేసిస్",
+     "Monthly Salary": 5,
+     "Job Status": "శాశ్వతమైనది",
+     "Location":"హైదరాబాద్"
+    },
+    {
+     "EmpId": 1008,
+     "Name": "Ben",
+     "Joining Date": "04-Aug-22",
+     "Email": "Ben@gmail.com",
+     "Department": "అమ్మకాలు",
+     "Monthly Salary": 54,
+     "Job Status": "శాశ్వతమైనది",
+     "Location":"హైదరాబాద్"
+    },
+    {
+     "EmpId": 1009,
+     "Name": "Caitlyn",
+     "Joining Date": "01-Mar-22",
+     "Email": "Caitlyn@gmail.com",
+     "Department": "ఫియోరి",
+     "Monthly Salary": 574,
+     "Job Status": "శాశ్వతమైనది",
+     "Location":"విశాఖపట్నం"
+    },
+    {
+     "EmpId": 1010,
+     "Name": "Gibbs",
+     "Joining Date": "01-Mar-22",
+     "Email": "Gibbs@gmail.com",
+     "Department": "అబాప్",
+     "Monthly Salary": 545,
+     "Job Status": "శాశ్వతమైనది",
+     "Location":"హైదరాబాద్"
+    },
+    {
+     "EmpId": 1011,
+     "Name": "Anderson",
+     "Joining Date": "01-Mar-22",
+     "Email": "Anderson@gmail.com",
+     "Department": "బేసిస్",
+     "Monthly Salary": 548,
+     "Job Status": "శాశ్వతమైనది",
+     "Location":"విశాఖపట్నం"
+    },
+    {
+     "EmpId": 1012,
+     "Name": "Michael",
+     "Joining Date": "01-Mar-22",
+     "Email": "Michael@gmail.com",
+     "Department": "అమ్మకాలు",
+     "Monthly Salary": 854414,
+     "Job Status": "శాశ్వతమైనది",
+     "Location":"విశాఖపట్నం"
+    },
+    {
+     "EmpId": 1013,
+     "Name": "David",
+     "Joining Date": "15-Mar-22",
+     "Email": "David@gmail.com",
+     "Department": "ఫియోరి",
+     "Monthly Salary": 4,
+     "Job Status": "శాశ్వతమైనది",
+     "Location":"హైదరాబాద్"
+    },
+    {
+     "EmpId": 1014,
+     "Name": "Jacob",
+     "Joining Date": "15-Mar-22",
+     "Email": "Jacob@gmail.com",
+     "Department": "అబాప్",
+     "Monthly Salary": 54,
+     "Job Status": "శాశ్వతమైనది",
+     "Location":"విశాఖపట్నం"
+    },
+    {
+     "EmpId": 1015,
+     "Name": "John",
+     "Joining Date": "01-Apr-22",
+     "Email": "John@gmail.com",
+     "Department": "బేసిస్",
+     "Monthly Salary": 8574,
+     "Job Status": "శాశ్వతమైనది",
+     "Location":"హైదరాబాద్"
+    },
+    {
+     "EmpId": 1016,
+     "Name": "Leonardo",
+     "Joining Date": "01-Apr-22",
+     "Email": "Leonardo@gmail.com",
+     "Department": "అమ్మకాలు",
+     "Monthly Salary": 541,
+     "Job Status": "శాశ్వతమైనది",
+     "Location":"హైదరాబాద్"
+    },
+    {
+     "EmpId": 1017,
+     "Name": "Matthew",
+     "Joining Date": "17-Apr-22",
+     "Email": "Matthew@gmail.com",
+     "Department": "ఫియోరి",
+     "Monthly Salary": 48,
+     "Job Status": "శాశ్వతమైనది",
+     "Location":"విశాఖపట్నం"
+    },
+    {
+     "EmpId": 1018,
+     "Name": "Joana",
+     "Joining Date": "01-Jun-22",
+     "Email": "Joana@gmail.com",
+     "Department": "అబాప్",
+     "Monthly Salary": 854,
+     "Job Status": "శాశ్వతమైనది",
+     "Location":"హైదరాబాద్"
+    },
+    {
+     "EmpId": 1019,
+     "Name": "Ross",
+     "Joining Date": "02-Jul-22",
+     "Email": "Ross@gmail.com",
+     "Department": "బేసిస్",
+     "Monthly Salary": 87,
+     "Job Status": "శాశ్వతమైనది",
+     "Location":"విశాఖపట్నం"
+    },
+    {
+     "EmpId": 1020,
+     "Name": "Joey",
+     "Joining Date": "15-Jul-22",
+     "Email": "Joey@gmail.com",
+     "Department": "అమ్మకాలు",
+     "Monthly Salary": 8547,
+     "Job Status": "శాశ్వతమైనది",
+     "Location":"హైదరాబాద్"
+    },
+    {
+     "EmpId": 1021,
+     "Name": "Jack",
+     "Joining Date": "03-Jan-22",
+     "Email": "Jack@gmail.com",
+     "Department": "ఫియోరి",
+     "Monthly Salary": 84,
+     "Job Status": "శాశ్వతమైనది",
+     "Location":"విశాఖపట్నం"
+    }
+   ]

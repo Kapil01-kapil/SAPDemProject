@@ -7,6 +7,15 @@
     "applicationVersion": {
       "version": "0.0.1"
     },
+    "dataSources": {
+      "KapiService": {
+          "uri": "/sap/opu/odata/sap/ZB71_EMP_SRV/",
+          "type": "OData",
+          "settings": {
+              "odataVersion": "2.0"
+          }
+      }
+  },
     "title": "{{appTitle}}",
     "description": "{{appDescription}}",
     "resources": "resources.json",
@@ -51,6 +60,11 @@
       "compact": true,
       "cozy": true
     },
+    "": {
+      "type": "sap.ui.model.odata.v2.ODataModel",
+      "dataSource": "KapiService",
+      "settings": {}
+  },
     "models": {
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",

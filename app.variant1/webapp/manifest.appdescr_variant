@@ -1,0 +1,28 @@
+{
+  "fileName": "manifest",
+  "layer": "CUSTOMER_BASE",
+  "fileType": "appdescr_variant",
+  "reference": "fin.gl.balanceaudittrail.display",
+  "id": "customer.app.variant1",
+  "namespace": "apps/fin.gl.balanceaudittrail.display/appVariants/customer.app.variant1/",
+  "content": [
+    {
+      "changeType": "appdescr_app_setTitle",
+      "content": {},
+      "texts": {
+        "i18n": "i18n/i18n.properties"
+      }
+    },
+    {
+      "changeType": "appdescr_ui5_addNewModelEnhanceWith",
+      "content": {
+        "modelId": "i18n",
+        "bundleUrl": "i18n/i18n.properties",
+        "supportedLocales": [
+          ""
+        ],
+        "fallbackLocale": ""
+      }
+    }
+  ]
+}

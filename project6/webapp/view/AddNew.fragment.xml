@@ -1,0 +1,39 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+<Dialog id="idDialog" draggable="true" >
+<VBox id="idMainVbox">
+
+<Label text="Emp ID" id="idL1"></Label>
+<Input id="idInputEmpid" placeholder="Enter Your Emp ID"></Input>
+
+
+<Label text="Emp Name" id="idL2"></Label>
+<Input id="idInputEmpName" placeholder="Enter Your Emp Name"></Input>
+
+
+<Label text="Emp Joining Date" id="idL3" labelFor="datePicker"></Label>
+<DatePicker id="datePicker" placeholder="Enter Your Emp Joining Date"/>
+
+<Label text="Emp Email ID " id="idL4"></Label>
+<Input id="idInputEmpEmail" placeholder="Enter Your Emp Email Id"></Input>
+
+<Label text="Emp Dept No" id="idL5"></Label>
+<Input id="idInputEmpDept" placeholder="Enter Your Emp Dept No"></Input>
+
+<Label text="Emp Salary" id="idL6"></Label>
+<Input id="idInputEmpsal" placeholder="Enter Your Emp Salary"></Input>
+
+<Label text="Emp Job Status" id="idL7"></Label>
+<Input id="idInputEmpStatus" placeholder="Enter Your Emp Job Status"></Input>
+
+<Label text="Emp Location" id="idL8"></Label>
+<Input id="idInputEmpLoc" placeholder="Enter Your Emp Location"></Input>
+
+</VBox>
+<beginButton >
+<Button id="idSave" press="saveNew" text="Add"></Button>
+</beginButton>
+<endButton >
+<Button id="idCancel" text="Cancel" press="closeDialog"></Button>
+</endButton>
+</Dialog>
+</core:FragmentDefinition>

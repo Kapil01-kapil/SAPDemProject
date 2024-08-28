@@ -1,0 +1,45 @@
+<mvc:View controllerName="project4.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+     xmlns:layout="sap.ui.layout"
+       xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+   
+            <VBox>
+             <Button text="Export to Excel" press="handlePdf"/>
+    <core:ComponentContainer width="100%" 
+      usage="spreadsheetImporter" propagateModel="true" async="true" 
+      settings="{
+        standalone:true,
+        columns: ['customer','product_ID','quantity'],
+        componentContainerData:{
+          uploadButtonPress:'uploadButtonPress',
+          buttonText:'Excel Upload'
+        }
+      }" />
+    
+    <Table id="exportTable" items="{/data}">
+      <columns>
+        <Column>
+          <Text text="Customer" />
+        </Column>
+        <Column>
+          <Text text="Product ID" />
+        </Column>
+        <Column>
+          <Text text="Quantity" />
+        </Column>
+      </columns>
+      <items>
+        <ColumnListItem>
+          <cells>
+            <Text text="{customer}" />
+            <Text text="{product_ID}" />
+            <Text text="{quantity}" />
+          </cells>
+        </ColumnListItem>
+      </items>
+    </Table>
+  </VBox>
+    </Page>
+</mvc:View>

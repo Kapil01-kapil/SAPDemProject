@@ -1,0 +1,83 @@
+<mvc:View controllerName="project6.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content >
+        <Switch id="switch" change="onSwitchChange" type="AcceptReject"></Switch>
+        <Text id="idText" ></Text>
+        <Table id="idTable"  items="{TabData>/}" inset="true" alternateRowColors="true" fixedLayout="true">
+        <columns>
+        <Column id="c1">
+        <Text id="t1" text="EmpId"></Text>
+        </Column>
+        <Column id="c2">
+        <Text id="t2" text="Name"></Text>
+        </Column>
+        <Column id="c3">
+        <Text id="t3" text="Joining Date"></Text>
+        </Column>
+        <Column id="c4">
+        <Text id="t4" text="Email Address"></Text>
+        </Column>
+        <Column id="c5">
+        <Text id="t5" text="Department"></Text>
+        </Column>
+        <Column id="c6">
+        <Text id="t6" text="Monthly Salary"></Text>
+        </Column>
+        <Column id="c7">
+        <Text id="t7" text="Job Status"></Text>
+        </Column>
+        <Column id="c8">
+        <Text id="t8" text="Location"></Text>
+        </Column>
+         <Column id="c9">
+        <Text id="t9" text="Current Date" ></Text>
+        </Column>
+        </columns>
+        <items>
+        <ColumnListItem id="cl1" press="editpopout" type="Active">
+        <Text id="ct1" text="{TabData>EmpId}"></Text>
+
+        <Text id="ct2" text="{path:'TabData>Name'}"></Text>
+       
+        <Text id="ct3" text="{TabData>JoiningDate}"></Text>
+       
+        <Text id="ct4" text="{TabData>Email}"></Text>
+       
+        <Text id="ct5" text="{TabData>Department}"></Text>
+      
+        <Text id="ct6" text="{path:'TabData>MonthlySalary',formatter:'.addCurrency'}"></Text>
+       
+        <Text id="ct7" text="{TabData>JobStatus}"></Text>
+       
+        <Text id="ct8" text="{TabData>Location}"></Text>
+
+         <Input id="ct9" value="{path:'dd>/date',formatter:'.formatter.changeDate'}" change="callChange"></Input>
+        </ColumnListItem>
+        </items>
+        </Table>
+        <Button id="idAddNew" text="Click to Add" type="Attention" press="addNew"></Button>
+        <ToolbarSpacer ></ToolbarSpacer>
+        <Button id="idExport" text="Export" type="Success" press="exportData"></Button>
+       
+        <!-- <Button id="idDownload" text="Export(XLSX)" press="downloadData" type="Accept"></Button>
+        <Button id="idDownload2" text="Export(PDF)" press="downloadPDFData" type="Success"></Button>
+        <Button id="idDownload3" text="Export(Image)" press="downloadImageData" type="Success"></Button> -->
+
+        <Dialog id="idExportConfirm" title="Select the Extension type to Export">
+        <RadioButtonGroup id="idRadioGroup" columns="1">
+        <RadioButton text="Excel(XLSX)"></RadioButton>
+        <RadioButton text="Pdf"></RadioButton>
+        <RadioButton text="Image"></RadioButton>
+        <RadioButton text="Video"></RadioButton>
+        </RadioButtonGroup>
+        <beginButton><Button text="Export" press="validateExport"></Button></beginButton>
+        <endButton><Button text="Cancel" press="cancelExport"></Button></endButton>
+        </Dialog>
+
+     
+        <Button text="Check Status" type="Emphasized" press="checkCondition"></Button>
+        </content>
+    </Page>
+</mvc:View>
