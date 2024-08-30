@@ -6,7 +6,7 @@
     <Page id="page" title="{i18n>title}">
    
             <VBox>
-             <Button text="Export to Excel" press="handlePdf"/>
+             <Button text="Export to Excel" press="onExportPress"/>
     <core:ComponentContainer width="100%" 
       usage="spreadsheetImporter" propagateModel="true" async="true" 
       settings="{
@@ -33,9 +33,9 @@
       <items>
         <ColumnListItem>
           <cells>
-            <Text text="{customer}" />
-            <Text text="{product_ID}" />
-            <Text text="{quantity}" />
+            <Text text="{Customer}" />
+            <Text text="{Product ID}" />
+            <Text text="{Quantity}" />
           </cells>
         </ColumnListItem>
       </items>

@@ -16,15 +16,44 @@ sap.ui.define([
             onInit: function () {
                 var oData = {
                     data: [
-                        { customer: "Customer A", product_ID: "P001", quantity: 10 },
-                        { customer: "Customer B", product_ID: "P002", quantity: 20 },
-                        { customer: "Customer C", product_ID: "P003", quantity: 15 }
+                       
                     ]
                 };
                 var oModel = new JSONModel(oData);
                 this.getView().setModel(oModel);
             },
-            
+            uploadButtonPress: function(oEvent) {
+           
+                // Get the data from the event
+                
+              var data = []
+                var oSpreadsheetData = oEvent.getParameter("parsedData");
+             var datas =  this.getView().getModel();
+                console.log("oSpreadsheetData",datas);
+    
+                // Process the uploaded data
+                if (oSpreadsheetData && oSpreadsheetData.length > 0) {
+                    // Example: Iterate over the data and log it
+                    oSpreadsheetData.forEach(function(row) {
+                        console.log("Customer: " + row.Customer);
+                        console.log("Product ID: " + row['Product ID']);
+                        console.log("Quantity: " + row.Quantity);
+                        data.push(row)
+                    });
+                    var oData ={
+                        data:data
+                    } 
+                    var oModel = new JSONModel(oData);
+                    this.getView().setModel(oModel);
+                   
+   
+    
+                    // Show a success message
+                    MessageToast.show("Excel file uploaded and data processed successfully.");
+                } else {
+                    MessageToast.show("No data found in the Excel file.");
+                }
+            },
             createColumnConfig: function () {
                 return [
                     {
