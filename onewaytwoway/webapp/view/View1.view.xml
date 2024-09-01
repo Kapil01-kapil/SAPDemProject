@@ -1,0 +1,19 @@
+<mvc:View controllerName="onewaytwoway.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content >
+       <Text id="textElement" text="{myModel>/name}" />
+
+        <!-- Two-Way Binding -->
+        <Input id="inputElement" value="{myModel>/name}" />
+        <Text text="{myModel>/name}" />
+
+        <!-- One-Time Binding -->
+        <Text  text="{= ${myModel>/age} + ' years old' }" />
+        
+        <!-- Button to check binding types -->
+        <Button text="Check Binding Types" press="checkBindingType" />
+            </content>
+    </Page>
+</mvc:View>
