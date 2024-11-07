@@ -1,0 +1,40 @@
+<mvc:View controllerName="binding.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page title="Binding Types Example">
+    <content>
+      <!-- Property Binding -->
+      <Text text="{/person/firstName}" />
+
+
+      <!-- Aggregation Binding -->
+      <List headerText="Product List" items="{/products}">
+        <items>
+          <StandardListItem title="{name}" description="{price} USD" />
+        </items>
+      </List>
+
+      <!-- Element Binding -->
+      <Panel headerText="Person Details">
+        <content>
+          <VBox binding="{/person}">
+            <Label text="First Name" />
+            <Text text="{firstName}" />
+            <Label text="Last Name" />
+            <Text text="{lastName}" />
+            <Label text="Age" />
+            <Text text="{age}" />
+          </VBox>
+        </content>
+      </Panel>
+
+      <!-- Expression Binding -->
+      <Text text="{= ${person/firstName} + ' ' + ${person/lastName} }" />
+
+      <!-- Two-Way Binding -->
+      <Input value="{/person/age}" />
+
+      <Text text="{ path: '/person/firstName', formatter: '.currencyValue' }" />
+    </content>
+  </Page>
+</mvc:View>

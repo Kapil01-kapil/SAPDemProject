@@ -1,0 +1,55 @@
+<mvc:View controllerName="assementproject.controller.Table"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    
+    <Page title="Material Data Table">
+        <content>
+            <Table id="dataTable" items="{localModel>/materials}">
+                <columns>
+                    <Column>
+                        <Text text="S.No" />
+                    </Column>
+                    <Column>
+                        <Text text="Material Name" />
+                    </Column>
+                    <Column>
+                        <Text text="Material Code" />
+                    </Column>
+                    <Column>
+                        <Text text="Quantity" />
+                    </Column>
+                    <Column>
+                        <Text text="Unit Price" />
+                    </Column>
+                    <Column>
+                        <Text text="Date of Order" />
+                    </Column>
+                    <Column>
+                        <Text text="Date of Delivery" />
+                    </Column>
+                    <Column>
+                        <Text text="Invoice Copy" />
+                    </Column>
+                    <Column>
+                        <Text text="Remarks" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{= ${localModel>index} + 1}" /> <!-- Row Number -->
+                            <Text text="{localModel>MaterialName}" />
+                            <Text text="{localModel>MaterialCode}" />
+                            <Text text="{localModel>Quantity}" />
+                            <Text text="{localModel>UnitPrice}" />
+                            <Text text="{localModel>DateOfOrder}" />
+                            <Text text="{localModel>DateOfDelivery}" />
+                            <Text text="{localModel>InvoiceCopy}" />
+                            <Text text="{localModel>Remarks}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

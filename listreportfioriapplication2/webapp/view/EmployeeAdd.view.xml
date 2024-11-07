@@ -1,0 +1,18 @@
+<mvc:View
+    controllerName="myApp.controller.EmployeeAdd"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="Add Employee">
+        <content>
+            <VBox>
+                <Label text="Enter Employee Name:" />
+                <Input id="employeeNameInput" placeholder="Enter name" />
+
+                <Label text="Enter Department:" />
+                <Input id="departmentInput" placeholder="Enter department" />
+
+                <Button text="Submit" press="onSubmit" />
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

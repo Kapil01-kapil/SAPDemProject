@@ -1,21 +1,23 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Sun Jul 28 2024 21:36:40 GMT+0530 (India Standard Time)|
-|**App Generator**<br>@sap/generator-fiori-freestyle|
+|**Generation Date and Time**<br>Wed Oct 16 2024 11:10:17 GMT+0530 (India Standard Time)|
+|**App Generator**<br>@sap/generator-fiori-elements|
 |**App Generator Version**<br>1.13.1|
 |**Generation Platform**<br>Visual Studio Code|
-|**Template Used**<br>simple|
-|**Service Type**<br>None|
-|**Service URL**<br>N/A
+|**Template Used**<br>List Report Page V2|
+|**Service Type**<br>SAP System (ABAP On Premise)|
+|**Service URL**<br>http://s4hana.ides.com:8034/sap/opu/odata/ui2/USER_MENU
 |**Module Name**<br>project1|
 |**Application Title**<br>App Title|
 |**Namespace**<br>|
 |**UI5 Theme**<br>sap_horizon|
-|**UI5 Version**<br>1.126.1|
+|**UI5 Version**<br>1.129.2|
 |**Enable Code Assist Libraries**<br>False|
 |**Enable TypeScript**<br>False|
 |**Add Eslint configuration**<br>False|
+|**Main Entity**<br>MenuItems|
+|**Navigation Entity**<br>None|
 
 ## project1
 
@@ -27,6 +29,12 @@ An SAP Fiori application.
 
 ```
     npm start
+```
+
+- It is also possible to run the application using mock data that reflects the OData Service URL supplied during application generation.  In order to run the application with Mock Data, run the following from the generated app root folder:
+
+```
+    npm run start-mock
 ```
 
 #### Pre-requisites:

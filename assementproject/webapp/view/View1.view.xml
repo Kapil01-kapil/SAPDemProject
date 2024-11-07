@@ -1,0 +1,15 @@
+<mvc:View controllerName="assementproject.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+ <content>
+             <VBox>
+                <Label text="Username" />
+                <Input id="usernameInput" />
+                <Label text="Password" />
+                <Input id="passwordInput" type="Password" />
+                <Button text="Login" press="onLogin" />
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

@@ -1,0 +1,52 @@
+<mvc:View controllerName="assementproject.controller.Form"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+     xmlns:u="sap.ui.unified" 
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+ <content>
+            <VBox>
+
+            
+                <Label text="Material Name" />
+                <Input id="materialName" value="{localModel>/currentMaterial/MaterialName}" />
+                
+                <Label text="Material Code" />
+                <Input id="materialCode" value="{localModel>/currentMaterial/MaterialCode}" />
+                
+                <Label text="Quantity" />
+                <Input id="quantity" value="{localModel>/currentMaterial/Quantity}" />
+                
+                <Label text="Unit Price" />
+                <Input id="unitPrice" value="{localModel>/currentMaterial/UnitPrice}" />
+                
+                <Label text="Date of Order" />
+                <DatePicker id="dateOfOrder" value="{localModel>/currentMaterial/DateOfOrder}" />
+                <Label text="Date of Delivery" />
+                <DatePicker id="dateOfDelivery" value="{localModel>/currentMaterial/DateOfDelivery}" />
+                
+                <Label text="Invoice Copy" />
+                <!-- <FileUploader id="invoiceCopy" value="{localModel>/currentMaterial/InvoiceCopy}" /> -->
+                <u:FileUploader 
+                    id="invoiceCopy" 
+                    width="50%" 
+                    value="{localModel>/currentMaterial/InvoiceCopy}"
+                    sameFilenameAllowed="false" 
+                    useMultipart="false" 
+                    
+                    uploadUrl="/sap"
+                    placeholder="Choose a file" 
+                    style="Emphasized"
+                    change="onFileUploadChange"
+                    uploadComplete="onFileUploadComplete" />
+                
+                <Label text="Remarks" />
+                <TextArea id="remarks" value="{localModel>/currentMaterial/Remarks}" />
+
+                <HBox>
+                    <Button text="Create" press="onCreate" type="Accept" />
+                    <Button text="Clear" press="onClear" type="Reject" />
+                </HBox>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

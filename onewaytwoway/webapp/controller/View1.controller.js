@@ -14,19 +14,25 @@ sap.ui.define([
                     name: "John Doe",
                     age: 30
                 });
+                oModel.setDefaultBindingMode('TwoWay'); 
                 this.getView().setModel(oModel, "myModel");
-                console.log(this.getView().getModel().getProperty("/name"));
+            
+                console.log("oModel",oModel);
+                
+                // console.log(this.getView().getModel().getProperty("/name"));
 
             },
     
             checkBindingType: function () {
-                var oView = this.getView();
-                var oText = oView.byId("textElement");
-                // var oInput = oView.byId("inputElement");
-                var oneTome = oView.byId("inputElementOne");
-                // Check binding info for the Text control
-                var oTextBindingInfo = oText.getBindingInfo("text");
-                console.log("Text Binding Info:", oTextBindingInfo);
+                console.log("checkBindingType",this.getView().getModel('myModel').getData());
+                
+                // var oView = this.getView();
+                // var oText = oView.byId("textElement");
+                // // var oInput = oView.byId("inputElement");
+                // var oneTome = oView.byId("inputElementOne");
+                // // Check binding info for the Text control
+                // var oTextBindingInfo = oText.getBindingInfo("text");
+                // console.log("Text Binding Info:", oTextBindingInfo);
     
                 // // Check binding info for the Input control
                 // var oInputBindingInfo = oInput.getBindingInfo("value");
