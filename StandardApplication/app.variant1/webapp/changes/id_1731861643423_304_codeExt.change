@@ -1,0 +1,22 @@
+{
+  "changeType": "codeExt",
+  "reference": "customer.app.variant1",
+  "namespace": "apps/customer.app.variant1/changes/",
+  "projectId": "customer.app.variant1",
+  "moduleName": "customer/app/variant1/changes/coding/kapil",
+  "support": {
+    "generator": "rta.service.ControllerExtension"
+  },
+  "originalLanguage": "EN",
+  "layer": "CUSTOMER_BASE",
+  "fileType": "change",
+  "fileName": "id_1731861643423_304_codeExt",
+  "content": {
+    "codeRef": "coding/kapil.js"
+  },
+  "texts": {},
+  "selector": {
+    "controllerName": "sap.suite.ui.generic.template.ListReport.view.ListReport"
+  },
+  "creation": "2024-11-17T16:40:43.423Z"
+}

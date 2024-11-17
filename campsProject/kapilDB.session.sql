@@ -1,0 +1,1 @@
+SELECT * FROM kapildb_demo_Book

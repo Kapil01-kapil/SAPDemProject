@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri=".34/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".34/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".34/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".34/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri=".34/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZEODEV_JUN_JULY_LRFP_CDS" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="PODBSetType" sap:label="Add Employee" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Name"/>
+                </Key>
+                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="50"/>
+                <Property Name="Mailid" Type="Edm.String" MaxLength="50"/>
+                <Property Name="Phoneno" Type="Edm.String" MaxLength="10"/>
+                <Property Name="Empid" Type="Edm.String" MaxLength="10"/>
+            </EntityType>
+            <EntityType Name="ZEODEV_JUN_JULY_I_CCHVType" sap:label="welcome to ui cds" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Waers"/>
+                </Key>
+                <Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Currency" sap:quickinfo="Currency Key" sap:semantics="currency-code"/>
+                <Property Name="Isocd" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="ISO code" sap:quickinfo="ISO currency code"/>
+                <Property Name="Altwr" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Alternative key" sap:quickinfo="Alternative key for currencies"/>
+                <Property Name="Gdatu" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Valid until" sap:quickinfo="Date until which the currency is valid"/>
+                <Property Name="Xprimary" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Primary" sap:quickinfo="Primary SAP Currency Code for ISO Code"/>
+            </EntityType>
+            <EntityType Name="ZEODEV_JUN_JULY_I_STVHType" sap:label="welcome to ui cds" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="skill"/>
+                </Key>
+                <Property Name="skill" Type="Edm.String" Nullable="false" MaxLength="6" sap:text="skillDec"/>
+                <Property Name="skillDec" Type="Edm.String" MaxLength="7"/>
+            </EntityType>
+            <EntityType Name="ZEODEV_ODATA_LRFPType" sap:label="welcome to ui cds" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Empid"/>
+                </Key>
+                <Property Name="Empid" Type="Edm.String" Nullable="false" MaxLength="6"/>
+                <Property Name="Name" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="kapil"/>
+                <Property Name="Desig" Type="Edm.String" MaxLength="30" sap:label="kapil"/>
+                <Property Name="Skill" Type="Edm.String" MaxLength="30" sap:text="CritiSkillDec" sap:label="kapil" sap:value-list="fixed-values"/>
+                <Property Name="CritiSaliSkill" Type="Edm.Byte"/>
+                <Property Name="CritiSkillDec" Type="Edm.String" MaxLength="8"/>
+                <Property Name="Emailid" Type="Edm.String" MaxLength="30" sap:label="kapil"/>
+                <Property Name="Phone" Type="Edm.String" MaxLength="10" sap:label="kapil"/>
+                <Property Name="Salary" Type="Edm.Decimal" Precision="13" Scale="2" sap:label="kapil" sap:quickinfo="data element for employee salary"/>
+                <Property Name="Currcode" Type="Edm.String" MaxLength="5" sap:text="Currcode" sap:label="kapil" sap:quickinfo="Currency Key" sap:value-list="standard" sap:semantics="currency-code"/>
+                <Property Name="SampleTitle" Type="Edm.String" MaxLength="19"/>
+                <Property Name="SimpleDec" Type="Edm.String" MaxLength="26"/>
+                <Property Name="ImagesUrlPath" Type="Edm.String" MaxLength="75"/>
+                <Property Name="CurrcodeDes" Type="Edm.String" MaxLength="5" sap:label="kapil" sap:quickinfo="Currency Key" sap:value-list="standard" sap:semantics="currency-code"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="10" sap:label="kapil"/>
+                <Property Name="Rating" Type="Edm.Byte" sap:label="kapil"/>
+                <Property Name="Doj" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="kapil"/>
+                <NavigationProperty Name="to_prj" Relationship="ZEODEV_JUN_JULY_LRFP_CDS.assoc_A3EA8483C3C77444E0384F42CE607150" FromRole="FromRole_assoc_A3EA8483C3C77444E0384F42CE607150" ToRole="ToRole_assoc_A3EA8483C3C77444E0384F42CE607150"/>
+                <NavigationProperty Name="to_skillDec" Relationship="ZEODEV_JUN_JULY_LRFP_CDS.assoc_3C1BC77CAF6B886AC855FC78E3D478E2" FromRole="FromRole_assoc_3C1BC77CAF6B886AC855FC78E3D478E2" ToRole="ToRole_assoc_3C1BC77CAF6B886AC855FC78E3D478E2"/>
+            </EntityType>
+            <Association Name="assoc_3C1BC77CAF6B886AC855FC78E3D478E2" sap:content-version="1">
+                <End Type="ZEODEV_JUN_JULY_LRFP_CDS.ZEODEV_ODATA_LRFPType" Multiplicity="1" Role="FromRole_assoc_3C1BC77CAF6B886AC855FC78E3D478E2"/>
+                <End Type="ZEODEV_JUN_JULY_LRFP_CDS.ZEODEV_JUN_JULY_I_STVHType" Multiplicity="1" Role="ToRole_assoc_3C1BC77CAF6B886AC855FC78E3D478E2"/>
+            </Association>
+            <Association Name="assoc_A3EA8483C3C77444E0384F42CE607150" sap:content-version="1">
+                <End Type="ZEODEV_JUN_JULY_LRFP_CDS.ZEODEV_ODATA_LRFPType" Multiplicity="1" Role="FromRole_assoc_A3EA8483C3C77444E0384F42CE607150"/>
+                <End Type="ZEODEV_JUN_JULY_LRFP_CDS.PODBSetType" Multiplicity="*" Role="ToRole_assoc_A3EA8483C3C77444E0384F42CE607150"/>
+            </Association>
+            <EntityContainer Name="ZEODEV_JUN_JULY_LRFP_CDS_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="PODBSet" EntityType="ZEODEV_JUN_JULY_LRFP_CDS.PODBSetType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZEODEV_JUN_JULY_I_CCHV" EntityType="ZEODEV_JUN_JULY_LRFP_CDS.ZEODEV_JUN_JULY_I_CCHVType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZEODEV_JUN_JULY_I_STVH" EntityType="ZEODEV_JUN_JULY_LRFP_CDS.ZEODEV_JUN_JULY_I_STVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZEODEV_ODATA_LRFP" EntityType="ZEODEV_JUN_JULY_LRFP_CDS.ZEODEV_ODATA_LRFPType" sap:searchable="true" sap:content-version="1"/>
+                <AssociationSet Name="assoc_3C1BC77CAF6B886AC855FC78E3D478E2" Association="ZEODEV_JUN_JULY_LRFP_CDS.assoc_3C1BC77CAF6B886AC855FC78E3D478E2" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZEODEV_ODATA_LRFP" Role="FromRole_assoc_3C1BC77CAF6B886AC855FC78E3D478E2"/>
+                    <End EntitySet="ZEODEV_JUN_JULY_I_STVH" Role="ToRole_assoc_3C1BC77CAF6B886AC855FC78E3D478E2"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_A3EA8483C3C77444E0384F42CE607150" Association="ZEODEV_JUN_JULY_LRFP_CDS.assoc_A3EA8483C3C77444E0384F42CE607150" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ZEODEV_ODATA_LRFP" Role="FromRole_assoc_A3EA8483C3C77444E0384F42CE607150"/>
+                    <End EntitySet="PODBSet" Role="ToRole_assoc_A3EA8483C3C77444E0384F42CE607150"/>
+                </AssociationSet>
+            </EntityContainer>
+            <Annotations Target="ZEODEV_JUN_JULY_LRFP_CDS.ZEODEV_ODATA_LRFPType/Skill" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="welcome to ui cds"/>
+                        <PropertyValue Property="CollectionPath" String="ZEODEV_JUN_JULY_I_STVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Skill"/>
+                                    <PropertyValue Property="ValueListProperty" String="skill"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="skillDec"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZEODEV_JUN_JULY_LRFP_CDS.ZEODEV_ODATA_LRFPType/Currcode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="welcome to ui cds"/>
+                        <PropertyValue Property="CollectionPath" String="ZEODEV_JUN_JULY_I_CCHV"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Currcode"/>
+                                    <PropertyValue Property="ValueListProperty" String="Currcode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Waers"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Isocd"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Altwr"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Gdatu"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Xprimary"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZEODEV_JUN_JULY_LRFP_CDS.ZEODEV_ODATA_LRFPType/CurrcodeDes" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="welcome to ui cds"/>
+                        <PropertyValue Property="CollectionPath" String="ZEODEV_JUN_JULY_I_CCHV"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CurrcodeDes"/>
+                                    <PropertyValue Property="ValueListProperty" String="Currcode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Waers"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Isocd"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Altwr"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Gdatu"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Xprimary"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZEODEV_JUN_JULY_LRFP_CDS.ZEODEV_JUN_JULY_LRFP_CDS_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="None"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZEODEV_JUN_JULY_LRFP_CDS.ZEODEV_ODATA_LRFPType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>Empid</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="http://s4hana.ides.com:8034/sap/opu/odata/sap/ZEODEV_JUN_JULY_LRFP_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://s4hana.ides.com:8034/sap/opu/odata/sap/ZEODEV_JUN_JULY_LRFP_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
