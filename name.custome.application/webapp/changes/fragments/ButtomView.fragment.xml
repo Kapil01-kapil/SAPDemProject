@@ -1,0 +1,6 @@
+<!-- Use stable and unique IDs!-->
+<core:FragmentDefinition xmlns:core='sap.ui.core' xmlns='sap.m'>
+    <!--  add your xml here -->
+    <Button text="Check Sales Order" press=".extension.customer.name.custome.application.custom.onClickSalesOrderStatus"  id="btn-91fb51aa">
+    </Button>
+</core:FragmentDefinition>

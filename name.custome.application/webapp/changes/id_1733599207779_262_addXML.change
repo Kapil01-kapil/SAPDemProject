@@ -1,0 +1,30 @@
+{
+  "changeType": "addXML",
+  "reference": "customer.name.custome.application",
+  "namespace": "apps/customer.name.custome.application/changes/",
+  "creation": "2024-12-07T19:20:10.828Z",
+  "projectId": "customer.name.custome.application",
+  "packageName": "$TMP",
+  "moduleName": "customer/name/custome/application/changes/fragments/tableItem.fragment.xml",
+  "support": {
+    "generator": "@sap-ux/control-property-editor",
+    "sapui5Version": "1.131.0",
+    "command": "addXML"
+  },
+  "originalLanguage": "EN",
+  "layer": "CUSTOMER_BASE",
+  "fileType": "change",
+  "fileName": "id_1733599207779_262_addXML",
+  "content": {
+    "targetAggregation": "items",
+    "index": 21,
+    "fragmentPath": "fragments/tableItem.fragment.xml"
+  },
+  "texts": {},
+  "selector": {
+    "id": "cus.sd.salesorders.manage::sap.suite.ui.generic.template.ListReport.view.ListReport::C_SalesOrderWl_F1873--responsiveTable",
+    "idIsLocal": false
+  },
+  "dependentSelector": {},
+  "jsOnly": false
+}

@@ -15,8 +15,14 @@ sap.ui.define([
                     age: 30
                 });
                 oModel.setDefaultBindingMode('TwoWay'); 
-                this.getView().setModel(oModel, "myModel");
+                // this.getView().setModel(oModel, "myModel");
             
+                var oView = this.getView();
+                if (oView) {
+                    oView.setModel(oModel, "myModel");
+                } else {
+                    console.error("View is not initialized!");
+                }
                 console.log("oModel",oModel);
                 
                 // console.log(this.getView().getModel().getProperty("/name"));

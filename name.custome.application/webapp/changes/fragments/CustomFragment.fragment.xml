@@ -1,0 +1,21 @@
+<!-- Use stable and unique IDs!-->
+<core:FragmentDefinition xmlns:core='sap.ui.core' xmlns='sap.m'
+
+  xmlns:sfb="sap.ui.comp.smartfilterbar"
+
+>
+    <!--  add your xml here -->
+      
+            <sfb:ControlConfiguration key="Dummy" id="idControlConfigurationDummy" label="Sample Filter">
+                <sfb:customControl>
+                    <ComboBox id="idMyCustomFilterComboBox" placeholder="Select a Value">
+                        <items>
+                            <core:Item id="idItem1" text="Filter Value 1" key="key1" />
+                            <core:Item id="idItem2" text="Filter Value 2" key="key2" />
+                        </items>
+                    </ComboBox>
+                </sfb:customControl>
+            </sfb:ControlConfiguration>
+        
+  
+</core:FragmentDefinition>

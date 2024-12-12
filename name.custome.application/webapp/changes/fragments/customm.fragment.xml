@@ -1,0 +1,5 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+                         xmlns:sfb="sap.ui.comp.smartfilterbar"
+                         xmlns="sap.m">
+ 
+</core:FragmentDefinition>

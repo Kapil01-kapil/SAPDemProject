@@ -1,0 +1,31 @@
+{
+  "changeType": "addXML",
+  "reference": "customer.name.custome.application",
+  "namespace": "apps/customer.name.custome.application/changes/",
+  "creation": "2024-12-04T05:51:31.912Z",
+  "projectId": "customer.name.custome.application",
+  "packageName": "$TMP",
+  "moduleName": "customer/name/custome/application/changes/fragments/ButtomView.fragment.xml",
+  "support": {
+    "generator": "@sap-ux/control-property-editor",
+    "sapui5Version": "1.131.0",
+    "command": "addXML"
+  },
+  "originalLanguage": "EN",
+  "layer": "CUSTOMER_BASE",
+  "fileType": "change",
+  "fileName": "id_1733291487601_164_addXML",
+  "content": {
+    "targetAggregation": "content",
+    "index": 17,
+    "fragmentPath": "fragments/ButtomView.fragment.xml",
+    "templateName": "CUSTOM_ACTION"
+  },
+  "texts": {},
+  "selector": {
+    "id": "cus.sd.salesorders.manage::sap.suite.ui.generic.template.ListReport.view.ListReport::C_SalesOrderWl_F1873--template::ListReport::TableToolbar",
+    "idIsLocal": false
+  },
+  "dependentSelector": {},
+  "jsOnly": false
+}

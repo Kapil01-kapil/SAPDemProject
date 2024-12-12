@@ -28,7 +28,7 @@
         </content>
       </Panel>
 
-      <!-- Expression Binding -->
+      <!-- Expression Binding  ternary operator-->
       <Text text="{= ${person/firstName} + ' ' + ${person/lastName} }" />
 
       <!-- Two-Way Binding -->

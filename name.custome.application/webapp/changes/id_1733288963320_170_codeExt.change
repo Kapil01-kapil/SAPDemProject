@@ -1,0 +1,22 @@
+{
+  "changeType": "codeExt",
+  "reference": "customer.name.custome.application",
+  "namespace": "apps/customer.name.custome.application/changes/",
+  "projectId": "customer.name.custome.application",
+  "moduleName": "customer/name/custome/application/changes/coding/custom",
+  "support": {
+    "generator": "rta.service.ControllerExtension"
+  },
+  "originalLanguage": "EN",
+  "layer": "CUSTOMER_BASE",
+  "fileType": "change",
+  "fileName": "id_1733288963320_170_codeExt",
+  "content": {
+    "codeRef": "coding/custom.js"
+  },
+  "texts": {},
+  "selector": {
+    "controllerName": "sap.suite.ui.generic.template.ListReport.view.ListReport"
+  },
+  "creation": "2024-12-04T05:09:23.321Z"
+}

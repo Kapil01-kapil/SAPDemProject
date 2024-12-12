@@ -1,0 +1,30 @@
+{
+  "changeType": "addXML",
+  "reference": "customer.name.custome.application",
+  "namespace": "apps/customer.name.custome.application/changes/",
+  "projectId": "customer.name.custome.application",
+  "packageName": "$TMP",
+  "moduleName": "customer/name/custome/application/changes/fragments/customm.fragment.xml",
+  "support": {
+    "generator": "@sap-ux/control-property-editor",
+    "command": "addXML",
+    "sapui5Version": "1.131.0"
+  },
+  "originalLanguage": "EN",
+  "layer": "CUSTOMER_BASE",
+  "fileType": "change",
+  "fileName": "id_1733289506068_175_addXML",
+  "content": {
+    "targetAggregation": "content",
+    "index": 0,
+    "fragmentPath": "fragments/customm.fragment.xml"
+  },
+  "texts": {},
+  "selector": {
+    "id": "cus.sd.salesorders.manage::sap.suite.ui.generic.template.ListReport.view.ListReport::C_SalesOrderWl_F1873--listReportFilter",
+    "idIsLocal": false
+  },
+  "dependentSelector": {},
+  "jsOnly": false,
+  "creation": "2024-12-04T05:48:37.359Z"
+}
