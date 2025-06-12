@@ -1,387 +1,208 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-      "sap/ui/export/Spreadsheet",
-    'project6/util/dateFormat',
-    'project6/controller/pdf',
-    // "project6/libs/pdfmake/pdfmake", // or the CDN path
-    // "project6/libs/pdfmake/vfs_fonts" // or the CDN path
+    "sap/ui/export/Spreadsheet",
+    "project6/util/dateFormat",
+    "project6/controller/pdf"
 ],
-    /**
-     * @param {typeof sap.ui.core.mvc.Controller} Controller
-     */
-    function (Controller, Spreadsheet,dateFormat) {
-        "use strict";
+function (Controller, Spreadsheet, dateFormat) {
+    "use strict";
 
-        return Controller.extend("project6.controller.View1", {
-            formatter:dateFormat,
-            onBeforeRendering:function()
-            {
-                var dData=[ { "state":"Andhra Pradesh",
-                              "city":"Vizag"
-                            },
-                            { "state":"Telangana",
-                              "city":"Hyderabad"
-                            },
-                            { "state":"Tamil Nadu",
-                              "city":"Chennai"
-                            },
-                            { "state":"Karnataka",
-                              "city":"Banglore"
-                            },
-                            { "state":"Kerela",
-                              "city":"Tiruvunanthapuram"
-                            }
-                            ];
-                            this.getView().setModel(new sap.ui.model.json.JSONModel(dData),"testData");
-            },
-            onInit: function () 
-            {
-                var oM=new sap.ui.model.json.JSONModel([{}]);
-                this.getView().setModel(oM,'TabData');
-                // console.log(new Date());
-                this.cols = [];
-                var labels=["EmpId","Name","Joining Date","Email","Department","Monthly Salary","Job Status","Location"];
-                for (let i = 0; i < labels.length; i++) 
-                {
-                    this.cols.push({property:labels[i]}); 
-                }
-                this.cols.push(
-                    {
-                        property:"date",
-                        type: "Date",
-                        format: "DD-MM-YYYY"
-                    }
-                );
-                var d=new Date();
-                // console.log(typeof(d))
-                var date=
-                {
-                    "date":new Date()
-                    
+    return Controller.extend("project6.controller.View1", {
+        formatter: dateFormat,
+
+        onBeforeRendering: function () {
+            var dData = [
+                { "state": "Andhra Pradesh", "city": "Vizag" },
+                { "state": "Telangana", "city": "Hyderabad" },
+                { "state": "Tamil Nadu", "city": "Chennai" },
+                { "state": "Karnataka", "city": "Banglore" },
+                { "state": "Kerela", "city": "Tiruvunanthapuram" }
+            ];
+            this.getView().setModel(new sap.ui.model.json.JSONModel(dData), "testData");
+        },
+
+        onInit: function () {
+            this.TabData = new sap.ui.model.json.JSONModel([]);
+            this.getView().setModel(this.TabData, 'TabData');
+
+            this.cols = [
+                { property: "EmpId" },
+                { property: "Name" },
+                { property: "Joining Date" },
+                { property: "Email" },
+                { property: "Department" },
+                { property: "Monthly Salary" },
+                { property: "Job Status" },
+                { property: "Location" },
+                { property: "date", type: "Date", format: "DD-MM-YYYY" }
+            ];
+
+            this.getView().setModel(new sap.ui.model.json.JSONModel({ date: new Date() }), "dd");
+        },
+
+        onUpload: function (e) {
+            this._import(e.getParameter("files") && e.getParameter("files")[0]);
+        },
+
+        _import: function (file) {
+            var that = this;
+            if (file && window.FileReader) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var workbook = XLSX.read(e.target.result, { type: 'binary' });
+                    var data = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[workbook.SheetNames[0]]);
+                    that.TabData.setData(data);
                 };
-                this.getView().setModel(new sap.ui.model.json.JSONModel(date),"dd");
-
-
-                // this.getView().setModel(new sap.ui.model.json.JSONModel(dat),"TabData");
-                
-                // this.cols.push(
-                //     {
-                //         property: 'EmpId'
-                //     }
-                // );
-                // this.cols.push(
-                //     {
-                //         property: 'Name'
-                //     }
-                // );
-                // this.cols.push(
-                //     {
-                //         property: 'Joining Date'
-                //     }
-                // );
-                // this.cols.push(
-                //     {
-                //         property: 'Email'
-                //     }
-                // );
-                // this.cols.push(
-                //     {
-                //         property: 'Department'
-                //     }
-                // );
-                // this.cols.push(
-                //     {
-                //         property: 'Monthly Salary'
-                //     }
-                // );
-                // this.cols.push(
-                //     {
-                //         property: 'Job Status'
-                //     }
-                // );
-
-                // this.cols.push(
-                //     {
-                //         property: 'Location'
-                //     }
-                // );
-
-                
-            },
-            callChange: function(oe)
-            {
-                console.log("Pavan : "+oe.getParameter("value"));
-                var model = this.getView().getModel("dd");
-                model.setProperty("date",oe.getParameter("value") );
-            },
-            addCurrency: function (oEvent) {
-                if (oEvent < 1000) {
-                    oEvent = oEvent * 10;
-                }
-                return "₹" + oEvent
-            },
-            downloadData: function () 
-            {
-                var dataLength=(this.getView().byId("idTable").getBinding("items").oModel.oData).length;
-                if(dataLength!=0)
-                {
-                var oSpreadsheet = new Spreadsheet(
-                    {
-                    workbook: { columns: this.cols },
-                    worksheetName:"cbt",
-                    dataSource: this.getView().byId("idTable").getBinding("items"),
-                    fileName:'CBT Task Data ',
-                    exportSettings: { dateFormat: { pattern: "d-mmm-yy"  }},
-                    // fileType: "csv" // Specify the output format as CSV
-                    // formatter: new sap.ui.export.CSVFormatter()
-                    });
-                }
-                else
-                {
-                    var oSpreadsheet = new Spreadsheet(
-                        {
-                        workbook: { columns: [{ property:''}] },
-                        worksheetName:"cbt",
-                        dataSource: this.getView().byId("idTable").getBinding("items"),
-                        fileName:'CBT Task Data ',
-                        exportSettings: { dateFormat: { pattern: "d-mmm-yy"  }},
-                        // fileType: "csv" // Specify the output format as CSV
-                        // formatter: new sap.ui.export.CSVFormatter()
-                        });
-                }
-
-                // Generating the spreadsheet
-                oSpreadsheet.build().finally()
-                {
-                    oSpreadsheet.destroy();
+                reader.onerror = function (ex) {
+                    console.log(ex);
                 };
-            },
+                reader.readAsBinaryString(file);
+            }
+        },
 
-            addNew : function()
-            {
-                // alert("Entered")
-                if(!this.ooDialog)
-                {
-                   this.ooDialog=sap.ui.xmlfragment("project6.view.AddNew", this);
-                    this.getView().addDependent(this.oDialog);
-                }
-                this.ooDialog.open();
-            },
-            closeDialog:function()
-            {
-                this.oDialog.close();
-                this.ooDialog.close();
-            },
-            saveNew:function()
-            {
-                var id=sap.ui.getCore().byId("idInputEmpid").getValue();
-                var name=sap.ui.getCore().byId("idInputEmpName").getValue();
-                var dia=sap.ui.getCore().byId("datePicker").getValue();
-                var email=sap.ui.getCore().byId("idInputEmpEmail").getValue();
-                var dept=sap.ui.getCore().byId("idInputEmpDept").getValue();
-                var sal=sap.ui.getCore().byId("idInputEmpsal").getValue();
-                var js=sap.ui.getCore().byId("idInputEmpStatus").getValue();
-                var loc=sap.ui.getCore().byId("idInputEmpLoc").getValue();
-                var newElement =  {
-                        "EmpId": id,
-                        "Name": name,
-                        "Joining Date": dia,
-                        "Email": email,
-                        "Department": dept,
-                        "Monthly Salary": sal,
-                        "Job Status": js,
-                        "Location":loc
-                    };
-          
-                var oModel = this.getView().getModel("TabData").oData; // getting json array
-                console.log(oModel.length)
-                oModel.push(newElement); // adding new object to the json array
-                var mdl=new sap.ui.model.json.JSONModel(oModel);
-                this.getView().setModel(mdl,"TabData"); // Again setting the model
-                console.log(oModel);
-                this.ooDialog.close();   
-            },
-            editpopout:function(Obj)
-            {
-                var path=Obj.getSource().getBindingContext("TabData").getPath();
-                if(path.length==2)
-                {
-                path=path[1]
-                }
-                else{
-                    path=path[1]+path[2]
-                }
-                var src= this.getView().getModel("TabData").oData;
-                console.log(src)
-                this.getView().setModel(new sap.ui.model.json.JSONModel(src[path]),"New");
-                // sap.ui.getCore().byId("idEditMail").setValue(555)
-                if(!this.oDialog)
-                {
-                this.oDialog=sap.ui.xmlfragment("project6.view.edit",this);
+        callChange: function (oe) {
+            this.getView().getModel("dd").setProperty("/date", oe.getParameter("value"));
+        },
+
+        addCurrency: function (value) {
+            if (value < 1000) value *= 10;
+            return "₹" + value;
+        },
+
+        downloadData: function () {
+            var data = this.TabData.getData();
+            var oSpreadsheet = new Spreadsheet({
+                workbook: { columns: this.cols },
+                worksheetName: "cbt",
+                dataSource: data,
+                fileName: 'CBT Task Data',
+                exportSettings: { dateFormat: { pattern: "d-mmm-yy" } }
+            });
+            oSpreadsheet.build().finally(() => oSpreadsheet.destroy());
+        },
+
+        addNew: function () {
+            if (!this.ooDialog) {
+                this.ooDialog = sap.ui.xmlfragment("project6.view.AddNew", this);
+                this.getView().addDependent(this.ooDialog);
+            }
+            this.ooDialog.open();
+        },
+
+        closeDialog: function () {
+            if (this.ooDialog) this.ooDialog.close();
+            if (this.oDialog) this.oDialog.close();
+        },
+
+        saveNew: function () {
+            var newElement = {
+                "EmpId": sap.ui.getCore().byId("idInputEmpid").getValue(),
+                "Name": sap.ui.getCore().byId("idInputEmpName").getValue(),
+                "Joining Date": sap.ui.getCore().byId("datePicker").getValue(),
+                "Email": sap.ui.getCore().byId("idInputEmpEmail").getValue(),
+                "Department": sap.ui.getCore().byId("idInputEmpDept").getValue(),
+                "Monthly Salary": sap.ui.getCore().byId("idInputEmpsal").getValue(),
+                "Job Status": sap.ui.getCore().byId("idInputEmpStatus").getValue(),
+                "Location": sap.ui.getCore().byId("idInputEmpLoc").getValue()
+            };
+
+            var data = this.TabData.getData();
+            data.push(newElement);
+            this.TabData.setData(data);
+            this.closeDialog();
+        },
+
+        editpopout: function (oEvent) {
+            var path = oEvent.getSource().getBindingContext("TabData").getPath();
+            var index = parseInt(path.split("/")[1]);
+            var item = this.TabData.getData()[index];
+            this.getView().setModel(new sap.ui.model.json.JSONModel(item), "New");
+
+            if (!this.oDialog) {
+                this.oDialog = sap.ui.xmlfragment("project6.view.edit", this);
                 this.getView().addDependent(this.oDialog);
-                }
-                this.oDialog.open();
-            },
-            n:1,
-            onSwitchChange:function()
-            {
-                console.log(this.n)
-                if(this.n%2==0)
-                {
-                    console.log("Even")
-                    var  data=this.getView().getModel("engData");
-                    this.getView().setModel(data,"TabData");
-                    // this.getView().setModel(new sap.ui.model.json.JSONModel({}),"TabData");
-                    this.getView().byId("idText").setText("English");
-                    
-                    this.n++;
-                }
-                else{
-                    console.log(this.tData)
-                    var tData=this.getView().getModel("TeluguData");
-                    this.getView().setModel(tData,"TabData");
-                    this.getView().byId("idText").setText("Telugu");
-                    
-                    this.n++;
+            }
+            this.oDialog.open();
+        },
 
-                }
-            },
-            downloadPDFData:function()
-            {
-                var oTable = this.getView().byId("idTable");
-                var aData = oTable.getModel("TabData").getData();
+        n: 1,
+        onSwitchChange: function () {
+            var text = this.n % 2 === 0 ? "English" : "Telugu";
+            var model = this.getView().getModel(this.n % 2 === 0 ? "engData" : "TeluguData");
+            this.getView().setModel(model, "TabData");
+            this.getView().byId("idText").setText(text);
+            this.n++;
+        },
 
-                // Define the PDF document definition
-                var docDefinition = {
-                  content: [
+        downloadPDFData: function () {
+            var data = this.TabData.getData();
+            var docDefinition = {
+                content: [
                     {
-                      table: {
-                        body: [
-                          // Header row
-                          ['EmpId', 'Name','Department','Location',"Joining Date",'Email','Monthly Salary' ,'Job Status'],
-                          // Data rows
-                          ...aData.map(item => [item.EmpId, item.Name,item.Department, item.Location, item.JoiningDate, item.Email,item.MonthlySalary,item.JobStatus])
-                        ]
-                      }
+                        table: {
+                            body: [
+                                ['EmpId', 'Name', 'Department', 'Location', 'Joining Date', 'Email', 'Monthly Salary', 'Job Status'],
+                                ...data.map(item => [
+                                    item.EmpId, item.Name, item.Department, item.Location,
+                                    item["Joining Date"], item.Email, item["Monthly Salary"], item["Job Status"]
+                                ])
+                            ]
+                        }
                     }
-                  ]
+                ]
+            };
+            pdfMake.createPdf(docDefinition).download('table.pdf');
+        },
+
+        downloadImageData: function () {
+            var tableElement = this.getView().byId("idTable").getDomRef();
+            html2canvas(tableElement).then(function (canvas) {
+                var link = document.createElement("a");
+                link.href = canvas.toDataURL("image/png");
+                link.download = "Exported_Table.jpeg";
+                link.click();
+            });
+        },
+
+        exportData: function () {
+            this.getView().byId("idExportConfirm").open();
+        },
+
+        validateExport: function () {
+            var selectedText = this.getView().byId("idRadioGroup").getSelectedButton().getText();
+            if (selectedText === 'Excel(XLSX)') this.downloadData();
+            else if (selectedText === 'Pdf') this.downloadPDFData();
+            else if (selectedText === 'Image') this.downloadImageData();
+            else sap.m.MessageBox.warning("Sorry.....The Extension you requested is under development...");
+            this.cancelExport();
+        },
+
+        cancelExport: function () {
+            this.getView().byId("idRadioGroup").setSelectedIndex(0);
+            this.getView().byId("idExportConfirm").close();
+        },
+
+        checkCondition: function () {
+            var aItems = this.getView().byId("idStateTable").getItems();
+            var aDataArray = aItems.map(oItem => {
+                return {
+                    state: oItem.getCells()[0].getSelectedItem().getText(),
+                    city: oItem.getCells()[1].getSelectedItem().getText()
                 };
-              
-                // Create the PDF
-                pdfMake.createPdf(docDefinition).download('table.pdf');
-             },
-             downloadImageData:function()
-             {
-                var oTable = this.getView().byId("idTable");
+            });
 
-                var tableElement = oTable.getDomRef();
+            let duplicate = false, sDuplicate = false;
 
-                // Use HTML2Canvas to capture the table as an image
-                html2canvas(tableElement).then(function(canvas) {
-                    // Convert the canvas to a data URL
-                    var imageData = canvas.toDataURL("image/png");
-                    var link=document.createElement("a");
-                    link.href=imageData;
-                    link.download="Exported_Table.jpeg";
-                    link.click();
-                });
-             },
-             exportData:function()
-             {
-                this.getView().byId("idExportConfirm").setVisible(true).open();
-             },
-             validateExport:function()
-             {
-                var radiobtngrp=this.getView().byId("idRadioGroup");
-                var s=radiobtngrp.getSelectedButton().getText();
-                console.log(s)
-                if(s==='Excel(XLSX)')
-                {
-                    this.downloadData();
-                    this.cancelExport();
-                    
-                }
-                else if(s==='Pdf')
-                {
-                    this.downloadPDFData();
-                    // this.getView().byId("idExportConfirm").setVisible(true).close();
-                    // radiobtngrp.setSelectedIndex(0);
-                    this.cancelExport();
-                }
-                else if(s==='Image')
-                {
-                    this.downloadImageData();
-                    // radiobtngrp.setSelectedIndex(0);
-                    this.cancelExport();
-                }
-                else 
-                {
-                    new sap.m.MessageBox.warning("Sorry.....The Extension is you requesting is under development...😐😐");
-                    // radiobtngrp.setSelectedIndex(0);
-                    this.cancelExport();
-                }
-       
+            aDataArray.forEach(function (elem, i, arr) {
+                let stateCount = arr.filter(e => e.state === elem.state).length;
+                let cityCount = arr.filter(e => e.city === elem.city).length;
+                if (stateCount > 1) sDuplicate = true;
+                if (stateCount > 1 && cityCount > 1) duplicate = true;
+            });
 
-             },
-             cancelExport:function()
-             {
-                this.getView().byId("idRadioGroup").setSelectedIndex(0);
-                this.getView().byId("idExportConfirm").setVisible(true).close();
-
-             },
-             checkCondition:function()
-             {
-                var oTable = this.getView().byId("idStateTable");
-                var aItems = oTable.getItems();
-                var aDataArray = [];
-
-                aItems.forEach(function(oItem) {
-                    let st=oItem.getCells()[0].getSelectedItem().getText();
-                    let cy=oItem.getCells()[1].getSelectedItem().getText();
-                    aDataArray.push({"state":st,"city":cy})
-                });
-                console.log(aDataArray);
-                var s=0,c=0;
-                var duplicate=false;
-                var sDuplicate=false;
-                aDataArray.forEach(function(Element)
-                {
-                    s=0,c=0;
-                    var dupArray=Element;
-                    // console.log(dupArray);
-                    aDataArray.forEach(function(e1){
-                            if(Element.state==e1.state){
-                                s++;
-                            }
-                            if(Element.city==e1.city){
-                                c++;
-                            }
-                    });
-                    if(s>1 && c>1)
-                    {
-                        duplicate=true;
-                    }
-                    if(s>1)
-                    {
-                        sDuplicate=true;
-                    }
-                    
-                })
-                if(sDuplicate)
-                {
-                    sap.m.MessageBox.alert("State should not be same");
-                }
-                   else if(duplicate)
-                    {
-                        sap.m.MessageBox.alert("Repeated");
-                        
-                    }
-                    else{
-                        sap.m.MessageBox.success("Congrats!! You have No Repeated Selections");
-                    }
-             }
-
-     
-
-        });
+            if (sDuplicate) sap.m.MessageBox.alert("State should not be same");
+            else if (duplicate) sap.m.MessageBox.alert("Repeated");
+            else sap.m.MessageBox.success("Congrats!! You have No Repeated Selections");
+        }
     });
+});

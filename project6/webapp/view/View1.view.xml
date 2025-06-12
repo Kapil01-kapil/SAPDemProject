@@ -1,9 +1,12 @@
 <mvc:View controllerName="project6.controller.View1"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:u="sap.ui.unified"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
+    
         <content >
         <Switch id="switch" change="onSwitchChange" type="AcceptReject"></Switch>
+        
         <Text id="idText" ></Text>
         <Table id="idTable"  items="{TabData>/}" inset="true" alternateRowColors="true" fixedLayout="true">
         <columns>
@@ -57,6 +60,21 @@
         </ColumnListItem>
         </items>
         </Table>
+      
+								<!-- <u:FileUploader id="FileUploaderId" sameFilenameAllowed="true" iconOnly="false" buttonOnly="true" fileType="XLSX,xlsx"
+									icon="sap-icon://upload" iconFirst="true" style="Emphasized" change="onUpload"/> -->
+				<u:FileUploader
+  id="FileUploaderId"
+  sameFilenameAllowed="true"
+  iconOnly="false"
+  buttonOnly="true"
+  fileType="XLSX,xlsx"
+  icon="sap-icon://upload"
+  iconFirst="true"
+  style="Emphasized"
+  change="onUpload"/>
+			
+				
         <Button id="idAddNew" text="Click to Add" type="Attention" press="addNew"></Button>
         <ToolbarSpacer ></ToolbarSpacer>
         <Button id="idExport" text="Export" type="Success" press="exportData"></Button>
